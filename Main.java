@@ -5,12 +5,64 @@ import myDataStructures.Queue.MyQueueImpl;
 import myDataStructures.Stack.MyStack;
 import myDataStructures.Stack.MyStackImpl;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //testStringLinkedList();
-        //testIntLinkedList();
-        //testStack();
-        testQueue();
+        startProgram();
+    }
+
+    private static void startProgram() {
+        Scanner scanner = new Scanner(System.in);
+        boolean agrees = true;
+
+        System.out.println("Welcome to the data structure testing program. Created by Corey Barr, 2024.\n");
+
+        while(agrees) {
+            testSelect(scanner);
+            agrees = askRepeat(scanner);
+        }
+
+        System.out.println("\nThank you for using this program :)");
+    }
+
+    private static void testSelect(Scanner scanner) {
+        final int NUMBER_OPTIONS = 4;
+        int choice = 0;
+
+        while(choice < 1 || choice > NUMBER_OPTIONS ) {
+            System.out.println("Select data structure to test (type number):");
+            System.out.println("1. Linked List (Strings)");
+            System.out.println("2. Linked List (Integers)");
+            System.out.println("3. Stack");
+            System.out.println("4. Queue");
+
+            choice = scanner.nextInt();
+        }
+
+        switch (choice) {
+            case 1:
+                testStringLinkedList();
+                break;
+
+            case 2:
+                testIntLinkedList();
+                break;
+
+            case 3:
+                testStack();
+                break;
+
+            case 4:
+                testQueue();
+                break;
+        }
+    }
+
+    private static boolean askRepeat(Scanner scanner) {
+        System.out.println("\nWould you like to complete another Test? (y/n)");
+        String answer = scanner.next();
+        return answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes");
     }
 
     private static void testStringLinkedList() {
