@@ -1,9 +1,11 @@
+package myDataStructures.LinkedList;
+
 public interface MyLinkedList<T> {
 
     // insertion methods
-    void addToEnd();
-    void addToBeginning();
-    void insertAfter();
+    void addToEnd(T element);
+    void addToBeginning(T element);
+    void insertAfter(T element, int position);
 
     // access methods
     T get();
