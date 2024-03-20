@@ -1,10 +1,13 @@
 import myDataStructures.LinkedList.MyLinkedList;
 import myDataStructures.LinkedList.MyLinkedListImp;
+import myDataStructures.Stack.MyStack;
+import myDataStructures.Stack.MyStackImpl;
 
 public class Main {
     public static void main(String[] args) {
-       //testStringLinkedList();
-        testIntLinkedList();
+        //testStringLinkedList();
+        //testIntLinkedList();
+        //testStack();
     }
 
     private static void testStringLinkedList() {
@@ -46,6 +49,10 @@ public class Main {
 
         System.out.println("\nDeleting the 3rd element:");
         stringList.delete(2);
+        stringList.display();
+
+        System.out.println("\nClearing list:");
+        stringList.clear();
         stringList.display();
     }
 
@@ -89,5 +96,53 @@ public class Main {
         System.out.println("\nDeleting the 3rd element:");
         intList.delete(2);
         intList.display();
+
+        System.out.println("\nClearing list:");
+        intList.clear();
+        intList.display();
+    }
+
+    private static void testStack(){
+        final MyStack<Character> stack = new MyStackImpl<Character>();
+
+        System.out.println("Testing stack.");
+
+        System.out.println("\nCreated empty stack:");
+        stack.display();
+
+        System.out.println("\nPushing J");
+        stack.push('J');
+        stack.display();
+
+        System.out.println("\nPushing A");
+        stack.push('A');
+        stack.display();
+
+        System.out.println("\nPushing V");
+        stack.push('V');
+        stack.display();
+
+        System.out.println("\nPushing A");
+        stack.push('A');
+        stack.display();
+
+        System.out.println("\nChecking top of stack:");
+        System.out.println(stack.peek());
+
+        System.out.println("\nPop:");
+        stack.pop();
+        stack.display();
+
+        System.out.println("\nPop:");
+        stack.pop();
+        stack.display();
+
+        System.out.println("\nPop:");
+        stack.pop();
+        stack.display();
+
+        System.out.println("\nPop:");
+        stack.pop();
+        stack.display();
     }
 }

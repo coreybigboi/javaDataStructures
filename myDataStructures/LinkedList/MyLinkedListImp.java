@@ -119,6 +119,12 @@ public class MyLinkedListImp<T> implements MyLinkedList<T> {
 
         if (isEmpty()) return;
 
+        // case 1: first element
+        if (position == 0) {
+            this.head = this.head.getNext();
+            return;
+        }
+
         int index = 0;
         LinkedListNode<T> before = null;
         LinkedListNode<T> current = this.head;
@@ -129,9 +135,15 @@ public class MyLinkedListImp<T> implements MyLinkedList<T> {
             index++;
         }
 
-        // delete
         assert before != null;
-        before.setNext(current.getNext());
+
+        // case 2: middle of list
+        if(current != null){
+            before.setNext(current.getNext());
+        }
+        else{ // case 3: end of list
+            before.setNext(null);
+        }
     }
 
     @Override
