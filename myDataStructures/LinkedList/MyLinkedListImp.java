@@ -55,23 +55,83 @@ public class MyLinkedListImp<T> implements MyLinkedList<T> {
     }
 
     @Override
-    public T get() {
-        return null;
+    public T get(int position) {
+        // guard for empty list
+        if(isEmpty()) return null;
+
+        // guard for invalid position
+        if(position < 0 || position >= size()) return null;
+
+        int index = 0;
+        LinkedListNode<T> current = this.head;
+
+        while (index != position) {
+            current = current.getNext();
+            index++;
+        }
+
+        return current.getData();
     }
 
     @Override
-    public T contains(T element) {
-        return null;
+    public boolean contains(T element) {
+        if(isEmpty()) return false;
+
+        LinkedListNode<T> current = this.head;
+
+        while (current != null) {
+            if(current.getData().equals(element)) return true;
+            current = current.getNext();
+        }
+
+        return false;
     }
 
     @Override
     public void set(T element, int position) {
+        // guard against invalid position
+        if (position < 0 || position > size()) return;
 
+        if(position == size()) {
+            addToEnd(element);
+        }
+
+        if (isEmpty()) {
+            addToBeginning(element);
+        }
+
+        int index = 0;
+        LinkedListNode<T> current = this.head;
+
+        while (index != position && current != null) {
+            current = current.getNext();
+            index++;
+        }
+
+        assert current != null;
+        current.setData(element);
     }
 
     @Override
     public void delete(int position) {
+        // guard against invalid position
+        if (position < 0 || position >= size()) return;
 
+        if (isEmpty()) return;
+
+        int index = 0;
+        LinkedListNode<T> before = null;
+        LinkedListNode<T> current = this.head;
+
+        while (index != position ) {
+            before = current;
+            current = current.getNext();
+            index++;
+        }
+
+        // delete
+        assert before != null;
+        before.setNext(current.getNext());
     }
 
     @Override
