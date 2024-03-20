@@ -18,7 +18,7 @@ public class Main {
 
         System.out.println("Welcome to the data structure testing program. Created by Corey Barr, 2024.\n");
 
-        while(agrees) {
+        while (agrees) {
             testSelect(scanner);
             agrees = askRepeat(scanner);
         }
@@ -30,7 +30,7 @@ public class Main {
         final int NUMBER_OPTIONS = 4;
         int choice = 0;
 
-        while(choice < 1 || choice > NUMBER_OPTIONS ) {
+        while (choice < 1 || choice > NUMBER_OPTIONS ) {
             System.out.println("Select data structure to test (type number):");
             System.out.println("1. Linked List (Strings)");
             System.out.println("2. Linked List (Integers)");
