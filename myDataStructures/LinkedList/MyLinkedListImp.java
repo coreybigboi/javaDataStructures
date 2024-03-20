@@ -12,14 +12,14 @@ public class MyLinkedListImp<T> implements MyLinkedList<T> {
         LinkedListNode<T> newNode = new LinkedListNode<T>(element, null);
 
         // case 1: empty list
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             this.head = newNode;
             return;
         }
 
         // case 2: non-empty list
         LinkedListNode<T> current = this.head;
-        while(current.getNext() != null) {
+        while (current.getNext() != null) {
             current = current.getNext();
         }
         current.setNext(newNode);
@@ -34,17 +34,17 @@ public class MyLinkedListImp<T> implements MyLinkedList<T> {
     @Override
     public void insertAfter(T element, int position) {
         // guard against empty list
-        if(isEmpty()) return;
+        if (isEmpty()) return;
 
         // guard against invalid position
-        if(position >= this.size() || position < 0) return;
+        if (position >= this.size() || position < 0) return;
 
         LinkedListNode<T> newNode = new LinkedListNode<>(element, null);
 
         int index = 0;
         LinkedListNode<T> current = this.head;
 
-        while(index != position) {
+        while (index != position) {
             current = current.getNext();
             index++;
         }
@@ -57,10 +57,10 @@ public class MyLinkedListImp<T> implements MyLinkedList<T> {
     @Override
     public T get(int position) {
         // guard for empty list
-        if(isEmpty()) return null;
+        if (isEmpty()) return null;
 
         // guard for invalid position
-        if(position < 0 || position >= size()) return null;
+        if (position < 0 || position >= size()) return null;
 
         int index = 0;
         LinkedListNode<T> current = this.head;
@@ -75,7 +75,7 @@ public class MyLinkedListImp<T> implements MyLinkedList<T> {
 
     @Override
     public boolean contains(T element) {
-        if(isEmpty()) return false;
+        if (isEmpty()) return false;
 
         LinkedListNode<T> current = this.head;
 
@@ -92,7 +92,7 @@ public class MyLinkedListImp<T> implements MyLinkedList<T> {
         // guard against invalid position
         if (position < 0 || position > size()) return;
 
-        if(position == size()) {
+        if (position == size()) {
             addToEnd(element);
         }
 
@@ -135,20 +135,18 @@ public class MyLinkedListImp<T> implements MyLinkedList<T> {
             index++;
         }
 
-        assert before != null;
-
         // case 2: middle of list
-        if(current != null){
+        if (current != null){
             before.setNext(current.getNext());
         }
-        else{ // case 3: end of list
+        else { // case 3: end of list
             before.setNext(null);
         }
     }
 
     @Override
     public void display() {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             System.out.println("[]");
             return;
         }
@@ -166,12 +164,12 @@ public class MyLinkedListImp<T> implements MyLinkedList<T> {
 
     @Override
     public int size() {
-        if(isEmpty()) return 0;
+        if (isEmpty()) return 0;
 
         int size = 0;
         LinkedListNode<T> current = this.head;
 
-        while(current != null) {
+        while (current != null) {
             size++;
             current = current.getNext();
         }

@@ -10,7 +10,6 @@ public class MyStackImpl<T> implements MyStack<T> {
         this.stack = new MyLinkedListImp<T>();
     }
 
-
     @Override
     public void push(T element) {
         this.stack.addToBeginning(element);

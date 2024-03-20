@@ -11,7 +11,7 @@ public interface MyLinkedList<T> {
     T get(int position);
     boolean contains(T element);
 
-    // modifcation
+    // modification
     void set(T element, int position);
     void delete(int position);
 
