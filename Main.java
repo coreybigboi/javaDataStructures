@@ -1,5 +1,7 @@
 import myDataStructures.LinkedList.MyLinkedList;
 import myDataStructures.LinkedList.MyLinkedListImp;
+import myDataStructures.Queue.MyQueue;
+import myDataStructures.Queue.MyQueueImpl;
 import myDataStructures.Stack.MyStack;
 import myDataStructures.Stack.MyStackImpl;
 
@@ -8,6 +10,7 @@ public class Main {
         //testStringLinkedList();
         //testIntLinkedList();
         //testStack();
+        testQueue();
     }
 
     private static void testStringLinkedList() {
@@ -144,5 +147,44 @@ public class Main {
         System.out.println("\nPop:");
         stack.pop();
         stack.display();
+    }
+
+    private static void testQueue() {
+        final MyQueue<Integer> queue = new MyQueueImpl<Integer>();
+
+        System.out.println("Testing queue.");
+
+        System.out.println("\nCreated empty queue:");
+        queue.display();
+
+        System.out.println("\nAdded 1:");
+        queue.enqueue(1);
+        queue.display();
+
+        System.out.println("\nAdded 100");
+        queue.enqueue(100);
+        queue.display();
+
+        System.out.println("\nAdded 250");
+        queue.enqueue(250);
+        queue.display();
+
+        System.out.println("\nFront of queue:");
+        System.out.println(queue.peek());
+
+        System.out.println("\nBack of queue:");
+        System.out.println(queue.rear());
+
+        System.out.println("\nDequeue:");
+        queue.dequeue();
+        queue.display();
+
+        System.out.println("\nDequeue:");
+        queue.dequeue();
+        queue.display();
+
+        System.out.println("\nDequeue:");
+        queue.dequeue();
+        queue.display();
     }
 }
